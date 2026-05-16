@@ -38,57 +38,47 @@ public class RegistroMaquina {
 
             String enderecoIp = ip.getHostAddress();
 
-            Map<String, Object> corpo =
-                    new HashMap<>();
+            Map<String, Object> corpo = new HashMap<>();
 
             corpo.put("nome", nome);
 
             corpo.put("ip", enderecoIp);
 
-            String json =
-                    mapper.writeValueAsString(corpo);
+            String json = mapper.writeValueAsString(corpo);
 
-            HttpRequest request =
-                    HttpRequest.newBuilder()
+            HttpRequest request = HttpRequest.newBuilder()
                     .uri(URI.create(
-                        urlApi + "/api/maquinas"
-                    ))
+                            urlApi + "/api/maquinas"))
                     .header(
-                        "Content-Type",
-                        "application/json"
-                    )
+                            "Content-Type",
+                            "application/json")
                     .POST(
-                        HttpRequest.BodyPublishers
-                        .ofString(json)
-                    )
+                            HttpRequest.BodyPublishers
+                                    .ofString(json))
                     .build();
 
-            HttpResponse<String> response =
-                    client.send(
-                        request,
-                        HttpResponse.BodyHandlers
-                        .ofString()
-                    );
+            HttpResponse<String> response = client.send(
+                    request,
+                    HttpResponse.BodyHandlers.ofString());
 
-            long maquinaId =
-                    Long.parseLong(response.body());
+            MaquinaResponseDTO responseDto = mapper.readValue(
+                    response.body(),
+                    MaquinaResponseDTO.class);
+
+            long maquinaId = responseDto.id();
 
             System.out.println(
-                "[OK] Máquina registrada. ID: "
-                + maquinaId
-            );
+                    "[OK] Máquina registrada. ID: "
+                            + maquinaId);
 
             return maquinaId;
 
         } catch (
-            IOException |
-            InterruptedException e
-        ) {
+                IOException | InterruptedException e) {
 
             throw new RuntimeException(
-                "Erro ao registrar máquina",
-                e
-            );
+                    "Erro ao registrar máquina",
+                    e);
         }
     }
 }
