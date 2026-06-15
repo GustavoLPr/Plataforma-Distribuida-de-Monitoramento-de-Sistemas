@@ -2,6 +2,8 @@ package com.monitoramento.API.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,6 +17,7 @@ import com.monitoramento.API.repository.MaquinaRepository;
 
 import jakarta.validation.Valid;
 
+@CrossOrigin(origins = "http://localhost:5173")
 @RestController
 @RequestMapping("/api/maquinas")
 public class MaquinaController {
@@ -23,11 +26,18 @@ public class MaquinaController {
     private MaquinaRepository rep;
 
     @PostMapping
-    public ResponseEntity<?> cadastroMaquina(@RequestBody @Valid MaquinaCadastroDto dados, UriComponentsBuilder uriBuilder){
+    public ResponseEntity<?> cadastroMaquina(@RequestBody @Valid MaquinaCadastroDto dados,
+            UriComponentsBuilder uriBuilder) {
         var maquina = new Maquina(dados);
         rep.save(maquina);
         var uri = uriBuilder.path("/maquinas/{id}").buildAndExpand(maquina.getId()).toUri();
-        return ResponseEntity.created(uri).body(new MaquinaListagemDto(maquina ));
+        return ResponseEntity.created(uri).body(new MaquinaListagemDto(maquina));
 
+    }
+
+    @GetMapping
+    public ResponseEntity<?> listarMaquinas() {
+        var maquinas = rep.findAll();
+        return ResponseEntity.ok(maquinas);
     }
 }
