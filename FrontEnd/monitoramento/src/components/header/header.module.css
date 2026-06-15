@@ -1,0 +1,22 @@
+.container {
+  width: 100%;
+  min-height: auto;
+  background-color: transparent;
+  border-bottom: 1px solid;
+  border-color: var(--border-color);
+  display: flex;
+  padding-top: 15px;
+  margin-bottom: 10px;
+}
+
+.swichPage {
+  background-color: transparent;
+  color: var(--text-color);
+  border: 1px solid;
+  border-color: var(--border-color);
+  border-radius: 8px;
+  padding: 8px 20px;
+  margin-left: 10px;
+  text-decoration: none;
+  margin-top: auto;
+}

@@ -1,0 +1,27 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@100..700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap");
+
+body,
+html {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-size: 16px;
+  /* font-family: 'Roboto Mono', monospace; */
+  font-family: "Inter", sans-serif;
+  letter-spacing: -0.02em;
+  font-weight: 500;
+}
+
+:root {
+  --bg-color: #1f1f1e;
+  --bgCard-color: #30302e;
+  --memCard-color: #10b981;
+  --cpuCard-color: #3B82F6;
+  --discCard-color: #F59E0B;
+  --border-color: #5a5a5a;
+  --text-color: #ffffff;
+  --secundaryText-color: #87867f;
+}
+
