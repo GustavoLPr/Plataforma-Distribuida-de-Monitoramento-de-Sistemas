@@ -26,11 +26,27 @@ public class ColetorMetricas {
 
     }
 
+    // public double getCpuPercent() {
+    // long[] ticksAtuais = cpu.getSystemCpuLoadTicks();
+    // double load = cpu.getSystemCpuLoadBetweenTicks(ticksAnteriores);
+    // this.ticksAnteriores = ticksAtuais;
+    // return Math.round(load * 10000.0) / 100.0;
+    // }
+
     public double getCpuPercent() {
         long[] ticksAtuais = cpu.getSystemCpuLoadTicks();
         double load = cpu.getSystemCpuLoadBetweenTicks(ticksAnteriores);
         this.ticksAnteriores = ticksAtuais;
-        return Math.round(load * 10000.0) / 100.0;
+
+        int cores = cpu.getLogicalProcessorCount();
+        double percent = load * cores * 100.0;
+
+        // Limita a 100% (pois pode passar em cargas altas)
+        if (percent > 100.0) {
+            percent = 100.0;
+        }
+
+        return Math.round(percent * 100.0) / 100.0;
     }
 
     public double getMemoriaPercent() {
@@ -40,9 +56,9 @@ public class ColetorMetricas {
         return Math.round(usada * 10000.0 / total) / 100.0;
     }
 
-    public double getDiscoPercent (){
+    public double getDiscoPercent() {
         for (OSFileStore disco : fs.getFileStores()) {
-            if (disco.getMount().equals("/") || disco.getMount().startsWith("C")){
+            if (disco.getMount().equals("/") || disco.getMount().startsWith("C")) {
                 long total = disco.getTotalSpace();
                 long disponivel = disco.getUsableSpace();
                 long usada = total - disponivel;
