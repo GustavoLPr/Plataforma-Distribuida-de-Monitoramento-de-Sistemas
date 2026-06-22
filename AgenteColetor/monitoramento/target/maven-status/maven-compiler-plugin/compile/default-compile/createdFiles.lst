@@ -1,1 +1,6 @@
-com\agente\Main.class
+com\agente\MaquinaResponseDTO.class
+com\agente\RegistroMaquina.class
+com\agente\MachineIdStorage.class
+com\agente\AgenteMain.class
+com\agente\ColetorMetricas.class
+com\agente\EnviadorMetricas.class

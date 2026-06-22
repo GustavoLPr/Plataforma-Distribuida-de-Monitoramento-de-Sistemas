@@ -6,7 +6,7 @@ import java.util.concurrent.TimeUnit;
 
 public class AgenteMain {
 
-    private static final String URL_API = "http://localhost:8080";
+    private static final String URL_API = "https://plataforma-distribuida-de-monitoramento-p43o.onrender.com";
 
     private static final int INTERVALO = 30;
 
