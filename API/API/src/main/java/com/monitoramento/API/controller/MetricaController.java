@@ -19,7 +19,7 @@ import com.monitoramento.API.model.Metrica;
 import com.monitoramento.API.repository.MaquinaRepository;
 import com.monitoramento.API.repository.MetricaRepository;
 
-@CrossOrigin(origins = "http://localhost:5173")
+@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("/api/metricas")
 public class MetricaController {

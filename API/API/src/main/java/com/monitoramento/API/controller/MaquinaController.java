@@ -17,7 +17,7 @@ import com.monitoramento.API.repository.MaquinaRepository;
 
 import jakarta.validation.Valid;
 
-@CrossOrigin(origins = "http://localhost:5173")
+@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("/api/maquinas")
 public class MaquinaController {
