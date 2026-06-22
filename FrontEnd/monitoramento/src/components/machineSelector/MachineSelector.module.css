@@ -12,3 +12,7 @@
   letter-spacing: -0.02em;
   font-weight: 500;
 }
+
+.button:hover{
+  background-color: var(--bgCard-color);
+}

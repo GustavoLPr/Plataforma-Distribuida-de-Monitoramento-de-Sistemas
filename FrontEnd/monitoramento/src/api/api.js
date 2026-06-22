@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const api = axios.create({
-  baseURL: "http://localhost:8080", 
+  baseURL: "http://localhost:8080",
   timeout: 5000,
 });
 
@@ -9,6 +9,9 @@ export const getMaquinas = () =>
   api.get("/api/maquinas");
 
 export const getMetricas = (maquinaId) =>
-  api.get(`/api/metricas/${maquinaId}`);
+  api.get(`/api/metricas/maquina/${maquinaId}`);
+
+export const getMediaMaquinas = () =>
+  api.get("/api/metricas/media");
 
 export default api;

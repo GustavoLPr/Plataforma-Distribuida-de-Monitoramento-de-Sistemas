@@ -9,7 +9,7 @@
   margin-bottom: 10px;
 }
 
-.swichPage {
+/* .swichPage {
   background-color: transparent;
   color: var(--text-color);
   border: 1px solid;
@@ -19,4 +19,14 @@
   margin-left: 10px;
   text-decoration: none;
   margin-top: auto;
+} */
+
+.metricCards {
+  display: flex;
+  margin: 0 30px 20px 30px;
+}
+
+.metricCardsSpace {
+  width: 33.3%;
+  flex: 1;
 }

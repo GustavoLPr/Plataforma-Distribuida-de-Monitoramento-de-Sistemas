@@ -21,7 +21,7 @@ export default function MetricCard({ titulo, valor, type }) {
       </div>
 
       <div className={styles.valorArea}>
-        <span className={styles.valor}>{valor}%</span>
+        <span className={styles.valor}>{Number(valor).toFixed(2)}%</span>{" "}
       </div>
 
       {/* BARRA */}
