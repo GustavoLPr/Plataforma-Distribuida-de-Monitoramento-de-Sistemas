@@ -11,7 +11,7 @@ import * as styles from "../individualView/IndividualView.module.css";
 import MetricCard from "../../components/metricCard/MetricCard";
 import CpuMemChart from "../../components/graficos/cpuMemChart/CpuMemChart";
 import DiskMountainChart from "../../components/graficos/diskMountainChart/DiskMontainChart";
-import MachineRadarChart from "../../components/graficos/RadarChart/RadarChart";
+import MachineRadarChart from "../../components/graficos/radarChart/RadarChart";
 import MachineTable from "../../components/machineTable/MachineTable";
 
 export default function IndividualView() {
